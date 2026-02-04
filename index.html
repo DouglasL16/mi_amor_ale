@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>¿Quieres ser mi San Valentín? 💘</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background: linear-gradient(135deg,#ff5fa2,#ffd1e8);
+      overflow:hidden;
+    }
+
+    .hearts span{
+      position:fixed;
+      bottom:-20px;
+      font-size:20px;
+      animation: float 8s linear infinite;
+      opacity:0.8;
+    }
+
+    @keyframes float{
+      from{ transform:translateY(0) rotate(0deg); opacity:0;}
+      10%{opacity:1;}
+      to{ transform:translateY(-120vh) rotate(360deg); opacity:0;}
+    }
+
+    .card{
+      background: rgba(255,255,255,0.9);
+      padding:30px 25px;
+      border-radius:25px;
+      text-align:center;
+      width:90%;
+      max-width:520px;
+      box-shadow:0 20px 50px rgba(0,0,0,0.25);
+      z-index:1;
+    }
+
+    h1{
+      font-size:30px;
+      margin-bottom:10px;
+    }
+
+    p{
+      font-size:16px;
+      margin-bottom:25px;
+    }
+
+    .name{
+      font-weight:800;
+      background:linear-gradient(90deg,#ff2f92,#ff85c2);
+      -webkit-background-clip:text;
+      color:transparent;
+    }
+
+    .buttons{
+      display:flex;
+      justify-content:center;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    button{
+      border:none;
+      padding:14px 22px;
+      border-radius:15px;
+      font-size:16px;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(0,0,0,0.2);
+    }
+
+    #yes{
+      background:#22c55e;
+      color:white;
+    }
+
+    #no{
+      background:#ef4444;
+      color:white;
+      position:relative;
+    }
+
+    #hint{
+      margin-top:15px;
+      font-size:13px;
+      opacity:0.8;
+    }
+
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.4);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:10;
+    }
+
+    .modal-box{
+      background:white;
+      padding:30px 25px;
+      border-radius:25px;
+      text-align:center;
+      max-width:500px;
+      width:90%;
+      box-shadow:0 20px 50px rgba(0,0,0,0.3);
+    }
+
+    .modal-box h2{
+      margin-bottom:10px;
+    }
+
+    .close{
+      margin-top:15px;
+      padding:10px 18px;
+      background:#111827;
+      color:white;
+      border:none;
+      border-radius:12px;
+      font-weight:700;
+      cursor:pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="card">
+  <h1>Oye <span class="name">Ale, mi amor</span>… 💖</h1>
+  <p>
+    Tengo una pregunta importante 😳<br>
+    <strong>¿Quieres ser mi San Valentín?</strong>
+  </p>
+
+  <div class="buttons">
+    <button id="yes">Sí 💘</button>
+    <button id="no">No 🙈</button>
+  </div>
+
+  <div id="hint">Tip: intenta decir que “No” 😏</div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <h2>💖🎉 ¡Sabía que dirías que sí! 🎉💖</h2>
+    <p>
+      Te invito a un plan lindo:<br>
+      <strong>chocolates, abrazos infinitos y una cita solo tú y yo 🥰</strong>
+    </p>
+    <button class="close" id="close">Aww 💞</button>
+  </div>
+</div>
+
+<script>
+  // corazones flotando
+  const hearts = document.getElementById("hearts");
+  const emojis = ["💖","💘","💕","💞","❤️","🫶"];
+  for(let i=0;i<25;i++){
+    const h = document.createElement("span");
+    h.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+    h.style.left = Math.random()*100 + "vw";
+    h.style.animationDuration = (6 + Math.random()*6) + "s";
+    h.style.fontSize = (14 + Math.random()*20) + "px";
+    hearts.appendChild(h);
+  }
+
+  const noBtn = document.getElementById("no");
+  const yesBtn = document.getElementById("yes");
+  const modal = document.getElementById("modal");
+  const close = document.getElementById("close");
+  const hint = document.getElementById("hint");
+
+  let tries = 0;
+
+  function moveNo(){
+    tries++;
+    hint.innerText = [
+      "¿Segura? 😳",
+      "Eso suena a sí 🤭",
+      "El botón se pone nervioso 🙈",
+      "No te creo 😌",
+      "Ya casi dices que sí 😏"
+    ][Math.min(tries-1,4)];
+
+    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+    noBtn.style.position = "fixed";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+
+    if(tries >= 6){
+      noBtn.innerText = "Sí 💘";
+      noBtn.style.background = "#22c55e";
+      noBtn.onclick = showModal;
+      hint.innerText = "Así me gusta 😌💖";
+    }
+  }
+
+  noBtn.addEventListener("mouseenter", moveNo);
+  noBtn.addEventListener("click", showModal);
+  yesBtn.addEventListener("click", showModal);
+
+  function showModal(){
+    modal.style.display = "flex";
+  }
+
+  close.addEventListener("click", ()=>{
+    modal.style.display = "none";
+  });
+</script>
+
+</body>
+</html>
