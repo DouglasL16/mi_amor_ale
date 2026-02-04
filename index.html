@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>¿Quieres ser mi San Valentín? 💘</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Ale 💖</title>
 
   <style>
     body{
       margin:0;
       font-family: 'Segoe UI', system-ui, sans-serif;
-      height:100vh;
+      min-height:100vh;
       display:flex;
       justify-content:center;
       align-items:center;
@@ -17,10 +17,11 @@
       overflow:hidden;
     }
 
+    /* Corazones flotando */
     .hearts span{
       position:fixed;
-      bottom:-20px;
-      font-size:20px;
+      bottom:-30px;
+      font-size:22px;
       animation: float 8s linear infinite;
       opacity:0.8;
     }
@@ -32,24 +33,25 @@
     }
 
     .card{
-      background: rgba(255,255,255,0.9);
-      padding:30px 25px;
-      border-radius:25px;
+      background: rgba(255,255,255,0.92);
+      padding:32px 26px;
+      border-radius:26px;
       text-align:center;
       width:90%;
-      max-width:520px;
-      box-shadow:0 20px 50px rgba(0,0,0,0.25);
+      max-width:560px;
+      box-shadow:0 20px 55px rgba(0,0,0,0.25);
       z-index:1;
     }
 
     h1{
-      font-size:30px;
-      margin-bottom:10px;
+      font-size:28px;
+      margin-bottom:14px;
     }
 
     p{
       font-size:16px;
-      margin-bottom:25px;
+      margin:10px 0;
+      line-height:1.5;
     }
 
     .name{
@@ -62,14 +64,15 @@
     .buttons{
       display:flex;
       justify-content:center;
-      gap:15px;
+      gap:16px;
+      margin-top:22px;
       flex-wrap:wrap;
     }
 
     button{
       border:none;
-      padding:14px 22px;
-      border-radius:15px;
+      padding:14px 24px;
+      border-radius:16px;
       font-size:16px;
       font-weight:700;
       cursor:pointer;
@@ -88,15 +91,17 @@
     }
 
     #hint{
-      margin-top:15px;
-      font-size:13px;
-      opacity:0.8;
+      margin-top:18px;
+      font-size:14px;
+      opacity:0.85;
+      font-style:italic;
     }
 
+    /* Modal */
     .modal{
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,0.4);
+      background:rgba(0,0,0,0.45);
       display:none;
       justify-content:center;
       align-items:center;
@@ -105,25 +110,25 @@
 
     .modal-box{
       background:white;
-      padding:30px 25px;
-      border-radius:25px;
+      padding:32px 26px;
+      border-radius:26px;
       text-align:center;
-      max-width:500px;
+      max-width:520px;
       width:90%;
-      box-shadow:0 20px 50px rgba(0,0,0,0.3);
+      box-shadow:0 25px 60px rgba(0,0,0,0.35);
     }
 
     .modal-box h2{
-      margin-bottom:10px;
+      margin-bottom:12px;
     }
 
     .close{
-      margin-top:15px;
-      padding:10px 18px;
+      margin-top:18px;
+      padding:10px 20px;
       background:#111827;
       color:white;
       border:none;
-      border-radius:12px;
+      border-radius:14px;
       font-weight:700;
       cursor:pointer;
     }
@@ -135,41 +140,60 @@
 <div class="hearts" id="hearts"></div>
 
 <div class="card">
-  <h1>Oye <span class="name">Ale, mi amor</span>… 💖</h1>
+  <h1>Hola <span class="name">mi amorcito precioso, mi Ale</span> 💖</h1>
+
   <p>
-    Tengo una pregunta importante 😳<br>
-    <strong>¿Quieres ser mi San Valentín?</strong>
+    Quiero hacerte una propuesta importante… 😳
+  </p>
+
+  <p>
+    <strong>¿Quieres ser mi San Valentín?</strong><br>
+    <em>Mi primer 14 de febrero contigo 🌹</em>
+  </p>
+
+  <p>
+    Habrá muchas cosas bonitas que sé que te gustarán,<br>
+    detalles que me recuerdan a ti.
+  </p>
+
+  <p>
+    Lo único que quiero es pasar este día contigo,<br>
+    disfrutarlo juntos y recordarte<br>
+    <strong>lo mucho que te amo y lo mucho que me importas</strong> ❤️
   </p>
 
   <div class="buttons">
-    <button id="yes">Sí 💘</button>
-    <button id="no">No 🙈</button>
+    <button id="yes">Quiero 💘</button>
+    <button id="no">Lo estoy pensando 🙈</button>
   </div>
 
-  <div id="hint">Tip: intenta decir que “No” 😏</div>
+  <div id="hint">
+    Amor… tómate tu tiempo, léelo con calma 💞
+  </div>
 </div>
 
 <div class="modal" id="modal">
   <div class="modal-box">
-    <h2>💖🎉 ¡Sabía que dirías que sí! 🎉💖</h2>
+    <h2>💖 Gracias por elegirnos 💖</h2>
     <p>
-      Te invito a un plan lindo:<br>
-      <strong>chocolates, abrazos infinitos y una cita solo tú y yo 🥰</strong>
+      Prometo hacer de este 14 de febrero<br>
+      un día bonito, tranquilo y lleno de cariño,<br>
+      solo tú y yo ❤️
     </p>
-    <button class="close" id="close">Aww 💞</button>
+    <button class="close" id="close">Ven aquí 💞</button>
   </div>
 </div>
 
 <script>
-  // corazones flotando
+  /* Corazones */
   const hearts = document.getElementById("hearts");
   const emojis = ["💖","💘","💕","💞","❤️","🫶"];
-  for(let i=0;i<25;i++){
+  for(let i=0;i<30;i++){
     const h = document.createElement("span");
     h.innerText = emojis[Math.floor(Math.random()*emojis.length)];
     h.style.left = Math.random()*100 + "vw";
     h.style.animationDuration = (6 + Math.random()*6) + "s";
-    h.style.fontSize = (14 + Math.random()*20) + "px";
+    h.style.fontSize = (16 + Math.random()*20) + "px";
     hearts.appendChild(h);
   }
 
@@ -184,11 +208,11 @@
   function moveNo(){
     tries++;
     hint.innerText = [
-      "¿Segura? 😳",
-      "Eso suena a sí 🤭",
-      "El botón se pone nervioso 🙈",
-      "No te creo 😌",
-      "Ya casi dices que sí 😏"
+      "No tengas miedo… es conmigo 💕",
+      "Tu corazón ya sabe la respuesta 💖",
+      "Piénsalo bonito, como todo lo nuestro 😌",
+      "Ven… aquí estoy contigo 💞",
+      "Creo que los dos ya lo sabemos 🥰"
     ][Math.min(tries-1,4)];
 
     const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
@@ -198,25 +222,23 @@
     noBtn.style.top = y + "px";
 
     if(tries >= 6){
-      noBtn.innerText = "Sí 💘";
+      noBtn.innerText = "Quiero 💘";
       noBtn.style.background = "#22c55e";
       noBtn.onclick = showModal;
-      hint.innerText = "Así me gusta 😌💖";
+      hint.innerText = "Eso… me encanta compartir esto contigo 💖";
     }
   }
-
-  noBtn.addEventListener("mouseenter", moveNo);
-  noBtn.addEventListener("click", showModal);
-  yesBtn.addEventListener("click", showModal);
 
   function showModal(){
     modal.style.display = "flex";
   }
 
-  close.addEventListener("click", ()=>{
-    modal.style.display = "none";
-  });
+  noBtn.addEventListener("mouseenter", moveNo);
+  noBtn.addEventListener("click", showModal);
+  yesBtn.addEventListener("click", showModal);
+  close.addEventListener("click", ()=> modal.style.display="none");
 </script>
 
 </body>
 </html>
+
