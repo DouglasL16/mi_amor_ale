@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti, mi amor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Sans+Pro:wght@300;400&display=swap');
+
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #4a4a4a;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 50px;
+            max-width: 500px;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 5px solid #d4a373;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .highlight {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #d4a373;
+            font-size: 1.2em;
+        }
+
+        .video-container {
+            margin: 30px 0;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            outline: none;
+        }
+
+        .signature {
+            margin-top: 20px;
+            font-weight: bold;
+            font-style: italic;
+            text-align: right;
+        }
+
+        /* Ajuste para celulares */
+        @media (max-width: 500px) {
+            .card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Para ti, mi amor</h1>
+        <p>Hoy quiero celebrar no solo a las mujeres que abrieron caminos para que hoy puedas elegir el tuyo, sino que quiero celebrarte a ti.</p>
+        <p>Alguien dijo una vez que <span class="highlight">"no se nace mujer, se llega a serlo"</span>, y tú has llegado a serlo en la forma más hermosa que existe.</p>
+        <p>Cada día me siento más orgulloso de poder caminar a tu lado. Admiro profundamente tu fuerza serena y me enamora esa luz tan tuya que tienes y que ilumina todo lo que tocas.</p>
+        
+        <div class="video-container">
+            <video controls>
+                <source src="mivideo.mp4" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
+        </div>
+
+        <p>Gracias por ser quien eres. Feliz Día de la Mujer.</p>
+        <div class="signature">Con todo mi amor,<br>[Tu Nombre Aquí]</div>
+    </div>
+
+</body>
+</html>
