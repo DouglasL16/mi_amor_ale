@@ -1,243 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Ale 💖</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti, mi amor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Sans+Pro:wght@300;400&display=swap');
 
-  <style>
-    body{
-      margin:0;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      background: linear-gradient(135deg,#ff5fa2,#ffd1e8);
-      overflow:hidden;
-    }
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #4a4a4a;
+            box-sizing: border-box;
+        }
 
-    /* Corazones flotando */
-    .hearts span{
-      position:fixed;
-      bottom:-30px;
-      font-size:22px;
-      animation: float 8s linear infinite;
-      opacity:0.8;
-    }
+        .card {
+            background: white;
+            padding: 40px 50px;
+            max-width: 500px;
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 5px solid #d4a373;
+            box-sizing: border-box;
+        }
 
-    @keyframes float{
-      from{ transform:translateY(0) rotate(0deg); opacity:0;}
-      10%{opacity:1;}
-      to{ transform:translateY(-120vh) rotate(360deg); opacity:0;}
-    }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
 
-    .card{
-      background: rgba(255,255,255,0.92);
-      padding:32px 26px;
-      border-radius:26px;
-      text-align:center;
-      width:90%;
-      max-width:560px;
-      box-shadow:0 20px 55px rgba(0,0,0,0.25);
-      z-index:1;
-    }
+        p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
 
-    h1{
-      font-size:28px;
-      margin-bottom:14px;
-    }
+        .highlight {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #d4a373;
+            font-size: 1.2em;
+        }
 
-    p{
-      font-size:16px;
-      margin:10px 0;
-      line-height:1.5;
-    }
+        .video-container {
+            margin: 30px 0;
+        }
 
-    .name{
-      font-weight:800;
-      background:linear-gradient(90deg,#ff2f92,#ff85c2);
-      -webkit-background-clip:text;
-      color:transparent;
-    }
+        video {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            outline: none;
+        }
 
-    .buttons{
-      display:flex;
-      justify-content:center;
-      gap:16px;
-      margin-top:22px;
-      flex-wrap:wrap;
-    }
+        .signature {
+            margin-top: 20px;
+            font-weight: bold;
+            font-style: italic;
+            text-align: right;
+        }
 
-    button{
-      border:none;
-      padding:14px 24px;
-      border-radius:16px;
-      font-size:16px;
-      font-weight:700;
-      cursor:pointer;
-      box-shadow:0 8px 18px rgba(0,0,0,0.2);
-    }
-
-    #yes{
-      background:#22c55e;
-      color:white;
-    }
-
-    #no{
-      background:#ef4444;
-      color:white;
-      position:relative;
-    }
-
-    #hint{
-      margin-top:18px;
-      font-size:14px;
-      opacity:0.85;
-      font-style:italic;
-    }
-
-    /* Modal */
-    .modal{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.45);
-      display:none;
-      justify-content:center;
-      align-items:center;
-      z-index:10;
-    }
-
-    .modal-box{
-      background:white;
-      padding:32px 26px;
-      border-radius:26px;
-      text-align:center;
-      max-width:520px;
-      width:90%;
-      box-shadow:0 25px 60px rgba(0,0,0,0.35);
-    }
-
-    .modal-box h2{
-      margin-bottom:12px;
-    }
-
-    .close{
-      margin-top:18px;
-      padding:10px 20px;
-      background:#111827;
-      color:white;
-      border:none;
-      border-radius:14px;
-      font-weight:700;
-      cursor:pointer;
-    }
-  </style>
+        /* Ajuste para celulares */
+        @media (max-width: 500px) {
+            .card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="hearts" id="hearts"></div>
+    <div class="card">
+        <h1>Para ti, mi amor</h1>
+        <p>Hoy quiero celebrar no solo a las mujeres que abrieron caminos para que hoy puedas elegir el tuyo, sino que quiero celebrarte a ti.</p>
+        <p>Alguien dijo una vez que <span class="highlight">"no se nace mujer, se llega a serlo"</span>, y tú has llegado a serlo en la forma más hermosa que existe.</p>
+        <p>Cada día me siento más orgulloso de poder caminar a tu lado. Admiro profundamente tu fuerza serena y me enamora esa luz tan tuya que tienes y que ilumina todo lo que tocas.</p>
+        
+        <div class="video-container">
+            <video controls>
+                <source src="mivideo.mp4" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
+        </div>
 
-<div class="card">
-  <h1>Hola <span class="name">mi amorcito precioso, mi Ale</span> 💖</h1>
-
-  <p>
-    Quiero hacerte una propuesta importante… 😳
-  </p>
-
-  <p>
-    <strong>¿Quieres ser mi San Valentín?</strong><br>
-    <em>Mi primer 14 de febrero contigo 🌹</em>
-  </p>
-
-  <p>
-    Habrá muchas cosas bonitas que sé que te gustarán,<br>
-    detalles que me recuerdan a ti.
-  </p>
-
-  <p>
-    Lo único que quiero es pasar este día contigo,<br>
-    disfrutarlo juntos y recordarte<br>
-    <strong>lo mucho que te amo y lo mucho que me importas</strong> ❤️
-  </p>
-
-  <div class="buttons">
-    <button id="yes">Quiero 💘</button>
-    <button id="no">Lo estoy pensando 🙈</button>
-  </div>
-
-  <div id="hint">
-    Amor… tómate tu tiempo, léelo con calma 💞
-  </div>
-</div>
-
-<div class="modal" id="modal">
-  <div class="modal-box">
-    <h2>💖 Gracias por elegirnos 💖</h2>
-    <p>
-      Prometo hacer de este 14 de febrero<br>
-      un día bonito, tranquilo y lleno de cariño,<br>
-      solo tú y yo ❤️
-    </p>
-    <button class="close" id="close">Ven aquí 💞</button>
-  </div>
-</div>
-
-<script>
-  /* Corazones */
-  const hearts = document.getElementById("hearts");
-  const emojis = ["💖","💘","💕","💞","❤️","🫶"];
-  for(let i=0;i<30;i++){
-    const h = document.createElement("span");
-    h.innerText = emojis[Math.floor(Math.random()*emojis.length)];
-    h.style.left = Math.random()*100 + "vw";
-    h.style.animationDuration = (6 + Math.random()*6) + "s";
-    h.style.fontSize = (16 + Math.random()*20) + "px";
-    hearts.appendChild(h);
-  }
-
-  const noBtn = document.getElementById("no");
-  const yesBtn = document.getElementById("yes");
-  const modal = document.getElementById("modal");
-  const close = document.getElementById("close");
-  const hint = document.getElementById("hint");
-
-  let tries = 0;
-
-  function moveNo(){
-    tries++;
-    hint.innerText = [
-      "No tengas miedo… es conmigo 💕",
-      "Tu corazón ya sabe la respuesta 💖",
-      "Piénsalo bonito, como todo lo nuestro 😌",
-      "Ven… aquí estoy contigo 💞",
-      "Creo que los dos ya lo sabemos 🥰"
-    ][Math.min(tries-1,4)];
-
-    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-    noBtn.style.position = "fixed";
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-
-    if(tries >= 6){
-      noBtn.innerText = "Quiero 💘";
-      noBtn.style.background = "#22c55e";
-      noBtn.onclick = showModal;
-      hint.innerText = "Eso… me encanta compartir esto contigo 💖";
-    }
-  }
-
-  function showModal(){
-    modal.style.display = "flex";
-  }
-
-  noBtn.addEventListener("mouseenter", moveNo);
-  noBtn.addEventListener("click", showModal);
-  yesBtn.addEventListener("click", showModal);
-  close.addEventListener("click", ()=> modal.style.display="none");
-</script>
+        <p>Gracias por ser quien eres. Feliz Día de la Mujer.</p>
+        <div class="signature">Con todo mi amor,<br>[Tu Nombre Aquí]</div>
+    </div>
 
 </body>
 </html>
