@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para mi Ale | Día de la Mujer</title>
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: linear-gradient(135deg, #fff5f8, #ffe4ec, #fdf2ff);
+      color:#4b2c39;
+      overflow-x:hidden;
+      min-height:100vh;
+    }
+
+    .background-hearts,
+    .background-flowers{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      overflow:hidden;
+      z-index:0;
+    }
+
+    .floating{
+      position:absolute;
+      opacity:0.18;
+      animation: floatUp linear infinite;
+    }
+
+    @keyframes floatUp{
+      from{
+        transform: translateY(110vh) rotate(0deg);
+        opacity:0;
+      }
+      15%{
+        opacity:0.2;
+      }
+      to{
+        transform: translateY(-20vh) rotate(360deg);
+        opacity:0;
+      }
+    }
+
+    .container{
+      position:relative;
+      z-index:1;
+      max-width:900px;
+      margin:0 auto;
+      padding:40px 20px 70px;
+    }
+
+    .hero{
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(10px);
+      border:1px solid rgba(255,255,255,0.8);
+      border-radius:28px;
+      padding:40px 28px;
+      box-shadow:0 18px 45px rgba(181, 114, 145, 0.18);
+      text-align:center;
+      margin-bottom:28px;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:8px 16px;
+      border-radius:999px;
+      background:#fff;
+      color:#b04a74;
+      font-weight:700;
+      font-size:14px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.06);
+      margin-bottom:18px;
+    }
+
+    h1{
+      font-size:clamp(2rem, 5vw, 3.3rem);
+      margin-bottom:14px;
+      color:#8d345b;
+    }
+
+    .hero p{
+      font-size:1.08rem;
+      line-height:1.75;
+      max-width:760px;
+      margin:0 auto 14px;
+    }
+
+    .name{
+      color:#d14f84;
+      font-weight:800;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:18px;
+      margin-top:10px;
+      margin-bottom:28px;
+    }
+
+    .card{
+      background: rgba(255,255,255,0.78);
+      border:1px solid rgba(255,255,255,0.85);
+      border-radius:24px;
+      padding:24px 20px;
+      box-shadow:0 16px 35px rgba(181, 114, 145, 0.12);
+    }
+
+    .card h2{
+      font-size:1.15rem;
+      margin-bottom:12px;
+      color:#a63d69;
+    }
+
+    .card p{
+      line-height:1.7;
+      font-size:1rem;
+    }
+
+    .quote-section{
+      background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(255,245,249,0.85));
+      border-radius:28px;
+      padding:34px 24px;
+      box-shadow:0 18px 40px rgba(181, 114, 145, 0.12);
+      text-align:center;
+      margin-bottom:28px;
+    }
+
+    .quote{
+      font-size:1.2rem;
+      line-height:1.9;
+      max-width:760px;
+      margin:0 auto 20px;
+      font-style:italic;
+      color:#7a3050;
+    }
+
+    .final-message{
+      background: rgba(255,255,255,0.82);
+      border-radius:28px;
+      padding:36px 26px;
+      box-shadow:0 18px 40px rgba(181, 114, 145, 0.12);
+      text-align:center;
+    }
+
+    .final-message p{
+      font-size:1.08rem;
+      line-height:1.9;
+      max-width:780px;
+      margin:0 auto 16px;
+    }
+
+    .signature{
+      margin-top:12px;
+      font-weight:800;
+      color:#b03f6c;
+      font-size:1.1rem;
+    }
+
+    .flower-line{
+      font-size:1.6rem;
+      margin:18px 0;
+      opacity:0.8;
+    }
+
+    @media (max-width:640px){
+      .hero, .card, .quote-section, .final-message{
+        padding:24px 18px;
+      }
+
+      .hero p, .card p, .final-message p, .quote{
+        font-size:0.98rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-hearts" id="hearts"></div>
+  <div class="background-flowers" id="flowers"></div>
+
+  <div class="container">
+    <section class="hero">
+      <div class="badge">🌸 Para mi Ale, en el Día de la Mujer</div>
+      <h1>Mi amor, hoy quería recordarte algo muy bonito</h1>
+      <p>
+        Hoy no solo quiero decirte que te amo.
+        Hoy quiero decirte que <span class="name">te admiro profundamente</span>.
+      </p>
+      <p>
+        Admiro la mujer que eres, la forma en la que miras la vida,
+        la serenidad que tienes incluso en los días difíciles,
+        la luz con la que llegas a cada lugar
+        y esa fuerza tan tuya, tan tranquila y tan hermosa,
+        que muchas veces no hace ruido, pero siempre se siente.
+      </p>
+    </section>
+
+    <section class="cards">
+      <div class="card">
+        <h2>🌷 Mujeres que abrieron caminos</h2>
+        <p>
+          Pienso en todas esas mujeres que, con valentía, sensibilidad y firmeza,
+          abrieron caminos para que hoy tú puedas elegir el tuyo.
+          Y entonces te miro a ti,
+          construyendo tu propia historia con tu manera de ser,
+          con tu esencia, con tu inteligencia y con tu corazón,
+          y no puedo evitar sentir orgullo.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>✨ La forma hermosa de ser tú</h2>
+        <p>
+          Dicen que no se nace mujer, que se llega a serlo.
+          Y cuando pienso en eso, pienso en ti.
+          En tu forma de cuidar, de sentir, de pensar,
+          de levantarte, de seguir, de amar.
+          En la forma tan hermosa en la que habitas lo que eres.
+          Y sí, mi amor, tú lo eres de una manera preciosa.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>🤍 Caminar a tu lado</h2>
+        <p>
+          Me hace feliz caminar a tu lado.
+          Me hace feliz aprender de ti,
+          acompañarte, admirarte en silencio a veces,
+          y otras veces decírtelo claramente:
+          me siento orgulloso de la mujer que eres
+          y agradecido de coincidir contigo en esta vida.
+        </p>
+      </div>
+    </section>
+
+    <section class="quote-section">
+      <p class="quote">
+        “No quería dejar pasar este día sin decirte que tu fuerza serena,
+        tu luz, tu ternura y tu manera de ser mujer
+        hacen que todo en ti se vea aún más bonito.”
+      </p>
+      <p class="quote">
+        “Y si hoy se celebra a las mujeres, yo celebro especialmente la suerte
+        de poder admirar a una tan increíble como tú.”
+      </p>
+    </section>
+
+    <section class="final-message">
+      <div class="flower-line">🌸 💗 🌷 ✨ 🤍</div>
+      <p>
+        Mi Ale, hoy quería escribirte algo que naciera bonito,
+        algo que te abrazara un poquito aunque fuera en palabras.
+      </p>
+      <p>
+        Quiero que nunca olvides lo valiosa que eres,
+        lo mucho que transmites,
+        lo hermosa que se ve tu esencia,
+        y todo lo bueno que despiertas en quienes tienen la suerte de conocerte.
+      </p>
+      <p>
+        Yo, por mi parte, solo puedo decirte que me encanta verte crecer,
+        soñar, decidir, reír, sentir, brillar
+        y convertirte cada día en una versión aún más linda de ti misma.
+      </p>
+      <p>
+        Gracias por ser tú.
+        Gracias por tu luz.
+        Gracias por dejarme caminar a tu lado.
+      </p>
+      <p>
+        Feliz Día de la Mujer, mi amor. 🌸
+      </p>
+      <div class="signature">Con todo mi cariño, Douglas 💖</div>
+    </section>
+  </div>
+
+  <script>
+    const heartsContainer = document.getElementById("hearts");
+    const flowersContainer = document.getElementById("flowers");
+
+    const heartSymbols = ["💗","💖","💕","💞"];
+    const flowerSymbols = ["🌸","🌷","✨","🤍"];
+
+    function createFloatingElement(container, symbols, amount, minSize, maxSize, minDur, maxDur){
+      for(let i=0;i<amount;i++){
+        const el = document.createElement("div");
+        el.className = "floating";
+        el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        el.style.left = Math.random() * 100 + "vw";
+        el.style.fontSize = (Math.random() * (maxSize - minSize) + minSize) + "px";
+        el.style.animationDuration = (Math.random() * (maxDur - minDur) + minDur) + "s";
+        el.style.animationDelay = (Math.random() * 8) + "s";
+        container.appendChild(el);
+      }
+    }
+
+    createFloatingElement(heartsContainer, heartSymbols, 18, 18, 30, 10, 18);
+    createFloatingElement(flowersContainer, flowerSymbols, 20, 16, 28, 11, 19);
+  </script>
+</body>
+</html>
