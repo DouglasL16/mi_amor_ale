@@ -1,308 +1,1380 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Para mi Ale | Día de la Mujer</title>
-  <style>
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    body{
-      font-family: "Segoe UI", system-ui, sans-serif;
-      background: linear-gradient(135deg, #fff5f8, #ffe4ec, #fdf2ff);
-      color:#4b2c39;
-      overflow-x:hidden;
-      min-height:100vh;
-    }
+    <title>Felices 11 meses, mi Ale ❤️</title>
 
-    .background-hearts,
-    .background-flowers{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      overflow:hidden;
-      z-index:0;
-    }
+    <!-- Tipografías elegantes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    .floating{
-      position:absolute;
-      opacity:0.18;
-      animation: floatUp linear infinite;
-    }
+    <style>
+        :root {
+            --rosa-claro: #fff1f4;
+            --rosa: #f6b7c7;
+            --rosa-fuerte: #e888a2;
+            --rojo-suave: #c85b75;
+            --vino: #71394a;
+            --crema: #fffaf7;
+            --blanco: #ffffff;
+            --texto: #563640;
+            --sombra: 0 20px 60px rgba(157, 77, 98, 0.15);
+        }
 
-    @keyframes floatUp{
-      from{
-        transform: translateY(110vh) rotate(0deg);
-        opacity:0;
-      }
-      15%{
-        opacity:0.2;
-      }
-      to{
-        transform: translateY(-20vh) rotate(360deg);
-        opacity:0;
-      }
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .container{
-      position:relative;
-      z-index:1;
-      max-width:900px;
-      margin:0 auto;
-      padding:40px 20px 70px;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    .hero{
-      background: rgba(255,255,255,0.72);
-      backdrop-filter: blur(10px);
-      border:1px solid rgba(255,255,255,0.8);
-      border-radius:28px;
-      padding:40px 28px;
-      box-shadow:0 18px 45px rgba(181, 114, 145, 0.18);
-      text-align:center;
-      margin-bottom:28px;
-    }
+        body {
+            font-family: "Poppins", sans-serif;
+            background:
+                radial-gradient(circle at top left, #ffe4eb, transparent 35%),
+                radial-gradient(circle at bottom right, #ffd9e4, transparent 35%),
+                var(--crema);
+            color: var(--texto);
+            overflow-x: hidden;
+        }
 
-    .badge{
-      display:inline-block;
-      padding:8px 16px;
-      border-radius:999px;
-      background:#fff;
-      color:#b04a74;
-      font-weight:700;
-      font-size:14px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.06);
-      margin-bottom:18px;
-    }
+        body.bloqueado {
+            overflow: hidden;
+        }
 
-    h1{
-      font-size:clamp(2rem, 5vw, 3.3rem);
-      margin-bottom:14px;
-      color:#8d345b;
-    }
+        /* ============================================================
+           PANTALLA INICIAL
+        ============================================================ */
 
-    .hero p{
-      font-size:1.08rem;
-      line-height:1.75;
-      max-width:760px;
-      margin:0 auto 14px;
-    }
+        .intro {
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,.8), transparent 30%),
+                linear-gradient(135deg, #f9c7d4, #ffe9ef, #f4bacb);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
 
-    .name{
-      color:#d14f84;
-      font-weight:800;
-    }
+        .intro.oculta {
+            opacity: 0;
+            visibility: hidden;
+        }
 
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
-      gap:18px;
-      margin-top:10px;
-      margin-bottom:28px;
-    }
+        .intro-contenido {
+            width: min(90%, 600px);
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+            animation: aparecerIntro 1.2s ease;
+        }
 
-    .card{
-      background: rgba(255,255,255,0.78);
-      border:1px solid rgba(255,255,255,0.85);
-      border-radius:24px;
-      padding:24px 20px;
-      box-shadow:0 16px 35px rgba(181, 114, 145, 0.12);
-    }
+        .intro-pequeno {
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: .72rem;
+            color: var(--vino);
+            margin-bottom: 18px;
+        }
 
-    .card h2{
-      font-size:1.15rem;
-      margin-bottom:12px;
-      color:#a63d69;
-    }
+        .intro h1 {
+            font-family: "Great Vibes", cursive;
+            font-size: clamp(4rem, 10vw, 7rem);
+            line-height: .95;
+            color: var(--vino);
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
 
-    .card p{
-      line-height:1.7;
-      font-size:1rem;
-    }
+        .intro p {
+            max-width: 480px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
 
-    .quote-section{
-      background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(255,245,249,0.85));
-      border-radius:28px;
-      padding:34px 24px;
-      box-shadow:0 18px 40px rgba(181, 114, 145, 0.12);
-      text-align:center;
-      margin-bottom:28px;
-    }
+        .btn-abrir {
+            margin-top: 35px;
+            padding: 16px 32px;
+            border: 0;
+            border-radius: 50px;
+            background: var(--vino);
+            color: white;
+            font-family: "Poppins", sans-serif;
+            font-size: .95rem;
+            cursor: pointer;
+            box-shadow: 0 14px 30px rgba(113, 57, 74, .25);
+            transition: .3s;
+        }
 
-    .quote{
-      font-size:1.2rem;
-      line-height:1.9;
-      max-width:760px;
-      margin:0 auto 20px;
-      font-style:italic;
-      color:#7a3050;
-    }
+        .btn-abrir:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(113, 57, 74, .32);
+        }
 
-    .final-message{
-      background: rgba(255,255,255,0.82);
-      border-radius:28px;
-      padding:36px 26px;
-      box-shadow:0 18px 40px rgba(181, 114, 145, 0.12);
-      text-align:center;
-    }
+        @keyframes aparecerIntro {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
 
-    .final-message p{
-      font-size:1.08rem;
-      line-height:1.9;
-      max-width:780px;
-      margin:0 auto 16px;
-    }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    .signature{
-      margin-top:12px;
-      font-weight:800;
-      color:#b03f6c;
-      font-size:1.1rem;
-    }
+        /* ============================================================
+           CORAZONES DE FONDO
+        ============================================================ */
 
-    .flower-line{
-      font-size:1.6rem;
-      margin:18px 0;
-      opacity:0.8;
-    }
+        #corazones {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
 
-    @media (max-width:640px){
-      .hero, .card, .quote-section, .final-message{
-        padding:24px 18px;
-      }
+        .corazon-flotante {
+            position: absolute;
+            bottom: -50px;
+            color: rgba(221, 110, 140, .20);
+            animation: flotar linear forwards;
+            user-select: none;
+        }
 
-      .hero p, .card p, .final-message p, .quote{
-        font-size:0.98rem;
-      }
-    }
-  </style>
+        @keyframes flotar {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-115vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* ============================================================
+           ELEMENTOS GENERALES
+        ============================================================ */
+
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            width: min(1100px, 90%);
+            margin: auto;
+            padding: 95px 0;
+        }
+
+        .etiqueta {
+            display: inline-block;
+            text-transform: uppercase;
+            font-size: .68rem;
+            letter-spacing: 4px;
+            color: var(--rojo-suave);
+            margin-bottom: 15px;
+        }
+
+        .titulo-seccion {
+            font-family: "Playfair Display", serif;
+            color: var(--vino);
+            font-size: clamp(2.1rem, 5vw, 3.6rem);
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .texto-seccion {
+            font-size: 1rem;
+            line-height: 2;
+            color: #71515a;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(45px);
+            transition:
+                opacity 1s ease,
+                transform 1s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============================================================
+           HERO PRINCIPAL
+        ============================================================ */
+
+        .hero {
+            min-height: 100vh;
+            width: 100%;
+            max-width: none;
+            padding: 60px 7%;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .hero-contenido {
+            max-width: 720px;
+        }
+
+        .hero-mini {
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-size: .7rem;
+            color: var(--rojo-suave);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(3rem, 7vw, 6.8rem);
+            color: var(--vino);
+            line-height: .97;
+            letter-spacing: -3px;
+        }
+
+        .hero h1 span {
+            display: block;
+            font-family: "Great Vibes", cursive;
+            font-weight: 400;
+            color: var(--rosa-fuerte);
+            letter-spacing: 0;
+            font-size: 1.05em;
+            margin-top: 10px;
+        }
+
+        .hero-texto {
+            max-width: 600px;
+            margin-top: 30px;
+            line-height: 1.9;
+            color: #76535e;
+        }
+
+        .hero-detalle {
+            display: flex;
+            gap: 35px;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        .dato strong {
+            display: block;
+            font-family: "Playfair Display", serif;
+            font-size: 2rem;
+            color: var(--vino);
+        }
+
+        .dato small {
+            font-size: .73rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #a27884;
+        }
+
+        /* FOTO PORTADA */
+
+        .hero-foto-wrapper {
+            position: relative;
+            max-width: 460px;
+            margin: auto;
+        }
+
+        .hero-foto-wrapper::before {
+            content: "";
+            position: absolute;
+            width: 95%;
+            height: 95%;
+            border: 1px solid rgba(189, 98, 122, .35);
+            border-radius: 230px 230px 35px 35px;
+            transform: rotate(6deg);
+            top: 7%;
+            left: 8%;
+        }
+
+        .foto-principal {
+            position: relative;
+            aspect-ratio: 4/5;
+            border-radius: 230px 230px 35px 35px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            background: linear-gradient(145deg, #f7d0da, #fff4f7);
+        }
+
+        .foto-principal img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .foto-fallback {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--vino);
+            padding: 30px;
+        }
+
+        .foto-fallback span {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .foto-fallback small {
+            margin-top: 8px;
+            opacity: .65;
+        }
+
+        .mini-corazon {
+            position: absolute;
+            bottom: -15px;
+            left: -20px;
+            width: 90px;
+            height: 90px;
+            background: white;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 2.5rem;
+            box-shadow: var(--sombra);
+        }
+
+        /* ============================================================
+           CARTA
+        ============================================================ */
+
+        .carta-contenedor {
+            background: rgba(255, 255, 255, .72);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,.8);
+            border-radius: 36px;
+            padding: clamp(35px, 7vw, 75px);
+            box-shadow: var(--sombra);
+            max-width: 920px;
+        }
+
+        .firma {
+            font-family: "Great Vibes", cursive;
+            color: var(--rosa-fuerte);
+            font-size: 2.5rem;
+            margin-top: 30px;
+        }
+
+        /* ============================================================
+           TARJETAS
+        ============================================================ */
+
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 45px;
+        }
+
+        .tarjeta {
+            background: rgba(255,255,255,.8);
+            border-radius: 25px;
+            padding: 35px 30px;
+            min-height: 300px;
+            border: 1px solid rgba(232, 136, 162, .13);
+            box-shadow: 0 15px 45px rgba(113,57,74,.07);
+            transition: .4s ease;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(113,57,74,.13);
+        }
+
+        .tarjeta-numero {
+            font-family: "Great Vibes", cursive;
+            color: var(--rosa-fuerte);
+            font-size: 3rem;
+        }
+
+        .tarjeta h3 {
+            font-family: "Playfair Display", serif;
+            color: var(--vino);
+            font-size: 1.45rem;
+            margin: 12px 0;
+        }
+
+        .tarjeta p {
+            line-height: 1.8;
+            color: #755761;
+            font-size: .91rem;
+        }
+
+        /* ============================================================
+           GALERÍA
+        ============================================================ */
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 45px;
+        }
+
+        .foto-galeria {
+            aspect-ratio: 4/5;
+            border-radius: 22px;
+            overflow: hidden;
+            position: relative;
+            background: #f9dbe3;
+            box-shadow: var(--sombra);
+        }
+
+        .foto-galeria:nth-child(2) {
+            transform: translateY(30px);
+        }
+
+        .foto-galeria img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .8s ease;
+        }
+
+        .foto-galeria:hover img {
+            transform: scale(1.06);
+        }
+
+        .foto-galeria .fallback {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            padding: 30px;
+            color: var(--vino);
+            background: linear-gradient(145deg, #ffdfe8, #fff8fa);
+        }
+
+        /* ============================================================
+           PROMESA
+        ============================================================ */
+
+        .promesa {
+            text-align: center;
+            max-width: 850px;
+        }
+
+        .promesa-corazon {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 30px;
+            background: #fbe2e8;
+            font-size: 2rem;
+        }
+
+        .frase-grande {
+            font-family: "Playfair Display", serif;
+            color: var(--vino);
+            line-height: 1.6;
+            font-size: clamp(1.45rem, 3vw, 2.25rem);
+        }
+
+        .frase-grande em {
+            color: var(--rosa-fuerte);
+            font-weight: 500;
+        }
+
+        /* ============================================================
+           ORGULLO
+        ============================================================ */
+
+        .orgullo {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .numero-11 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(8rem, 24vw, 17rem);
+            line-height: .8;
+            color: #f2cbd5;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* ============================================================
+           FINAL
+        ============================================================ */
+
+        .final {
+            width: 100%;
+            max-width: none;
+            min-height: 90vh;
+            padding: 100px 7%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background:
+                radial-gradient(circle at top, rgba(255,255,255,.8), transparent 45%),
+                linear-gradient(180deg, transparent, #f8d8e1);
+        }
+
+        .final-contenido {
+            width: min(780px, 100%);
+        }
+
+        .final h2 {
+            font-family: "Great Vibes", cursive;
+            color: var(--vino);
+            font-size: clamp(4rem, 10vw, 7rem);
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .final p {
+            margin: 25px auto 0;
+            max-width: 620px;
+            line-height: 1.9;
+        }
+
+        .btn-sorpresa {
+            border: none;
+            margin-top: 35px;
+            background: var(--vino);
+            color: white;
+            border-radius: 50px;
+            padding: 17px 34px;
+            font-family: "Poppins", sans-serif;
+            cursor: pointer;
+            transition: .3s ease;
+        }
+
+        .btn-sorpresa:hover {
+            transform: scale(1.05);
+        }
+
+        .mensaje-secreto {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: 1s ease;
+        }
+
+        .mensaje-secreto.mostrar {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 45px;
+        }
+
+        .mensaje-secreto .secreto-caja {
+            background: rgba(255,255,255,.78);
+            border: 1px solid rgba(255,255,255,.95);
+            border-radius: 30px;
+            padding: 35px;
+            box-shadow: var(--sombra);
+        }
+
+        .secreto-caja strong {
+            font-family: "Great Vibes", cursive;
+            font-size: 2.3rem;
+            color: var(--rosa-fuerte);
+            font-weight: 400;
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            background: #f8d8e1;
+            color: #8c6772;
+            font-size: .78rem;
+            letter-spacing: 2px;
+        }
+
+        /* CORAZONES DEL EFECTO FINAL */
+
+        .explosion {
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+            animation: explosion 1.7s ease-out forwards;
+        }
+
+        @keyframes explosion {
+            from {
+                opacity: 1;
+                transform: translate(0,0) scale(.5) rotate(0);
+            }
+
+            to {
+                opacity: 0;
+                transform:
+                    translate(var(--x), var(--y))
+                    scale(1.5)
+                    rotate(360deg);
+            }
+        }
+
+        /* ============================================================
+           RESPONSIVE PARA CELULAR
+        ============================================================ */
+
+        @media (max-width: 850px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 100px;
+                text-align: center;
+            }
+
+            .hero-texto {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-detalle {
+                justify-content: center;
+            }
+
+            .hero-foto-wrapper {
+                width: min(85%, 420px);
+            }
+
+            .tarjetas {
+                grid-template-columns: 1fr;
+            }
+
+            .galeria {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .foto-galeria:nth-child(2) {
+                transform: none;
+            }
+
+            .orgullo {
+                grid-template-columns: 1fr;
+            }
+
+            .numero-11 {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            section {
+                padding: 70px 0;
+            }
+
+            .hero {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+            .hero h1 {
+                letter-spacing: -1.5px;
+            }
+
+            .intro-contenido {
+                padding: 30px 20px;
+            }
+
+            .carta-contenedor {
+                border-radius: 25px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
 </head>
-<body>
-  <div class="background-hearts" id="hearts"></div>
-  <div class="background-flowers" id="flowers"></div>
 
-  <div class="container">
-    <section class="hero">
-      <div class="badge">🌸 Para mi Ale, en el Día de la Mujer</div>
-      <h1>Mi amor, hoy quería recordarte algo muy bonito</h1>
-      <p>
-        Hoy no solo quiero decirte que te amo.
-        Hoy quiero decirte que <span class="name">te admiro profundamente</span>.
-      </p>
-      <p>
-        Admiro la mujer que eres, la forma en la que miras la vida,
-        la serenidad que tienes incluso en los días difíciles,
-        la luz con la que llegas a cada lugar
-        y esa fuerza tan tuya, tan tranquila y tan hermosa,
-        que muchas veces no hace ruido, pero siempre se siente.
-      </p>
-    </section>
+<body class="bloqueado">
 
-    <section class="cards">
-      <div class="card">
-        <h2>🌷 Mujeres que abrieron caminos</h2>
-        <p>
-          Pienso en todas esas mujeres que, con valentía, sensibilidad y firmeza,
-          abrieron caminos para que hoy tú puedas elegir el tuyo.
-          Y entonces te miro a ti,
-          construyendo tu propia historia con tu manera de ser,
-          con tu esencia, con tu inteligencia y con tu corazón,
-          y no puedo evitar sentir orgullo.
-        </p>
-      </div>
+    <!-- ============================================================
+         PANTALLA QUE ELLA VERÁ PRIMERO
+    ============================================================ -->
+    <div class="intro" id="intro">
+        <div class="intro-contenido">
+            <div class="intro-pequeno">Tengo algo para ti</div>
 
-      <div class="card">
-        <h2>✨ La forma hermosa de ser tú</h2>
-        <p>
-          Dicen que no se nace mujer, que se llega a serlo.
-          Y cuando pienso en eso, pienso en ti.
-          En tu forma de cuidar, de sentir, de pensar,
-          de levantarte, de seguir, de amar.
-          En la forma tan hermosa en la que habitas lo que eres.
-          Y sí, mi amor, tú lo eres de una manera preciosa.
-        </p>
-      </div>
+            <h1>Mi Ale</h1>
 
-      <div class="card">
-        <h2>🤍 Caminar a tu lado</h2>
-        <p>
-          Me hace feliz caminar a tu lado.
-          Me hace feliz aprender de ti,
-          acompañarte, admirarte en silencio a veces,
-          y otras veces decírtelo claramente:
-          me siento orgulloso de la mujer que eres
-          y agradecido de coincidir contigo en esta vida.
-        </p>
-      </div>
-    </section>
+            <p>
+                No sabía cómo guardar en un solo lugar todo lo que siento por ti,
+                así que decidí hacerte algo que puedas abrir cada vez que quieras
+                recordar cuánto significas para mí.
+            </p>
 
-    <section class="quote-section">
-      <p class="quote">
-        “No quería dejar pasar este día sin decirte que tu fuerza serena,
-        tu luz, tu ternura y tu manera de ser mujer
-        hacen que todo en ti se vea aún más bonito.”
-      </p>
-      <p class="quote">
-        “Y si hoy se celebra a las mujeres, yo celebro especialmente la suerte
-        de poder admirar a una tan increíble como tú.”
-      </p>
-    </section>
+            <button class="btn-abrir" id="abrirPagina">
+                Abrir mi regalo 💌
+            </button>
+        </div>
+    </div>
 
-    <section class="final-message">
-      <div class="flower-line">🌸 💗 🌷 ✨ 🤍</div>
-      <p>
-        Mi Ale, hoy quería escribirte algo que naciera bonito,
-        algo que te abrazara un poquito aunque fuera en palabras.
-      </p>
-      <p>
-        Quiero que nunca olvides lo valiosa que eres,
-        lo mucho que transmites,
-        lo hermosa que se ve tu esencia,
-        y todo lo bueno que despiertas en quienes tienen la suerte de conocerte.
-      </p>
-      <p>
-        Yo, por mi parte, solo puedo decirte que me encanta verte crecer,
-        soñar, decidir, reír, sentir, brillar
-        y convertirte cada día en una versión aún más linda de ti misma.
-      </p>
-      <p>
-        Gracias por ser tú.
-        Gracias por tu luz.
-        Gracias por dejarme caminar a tu lado.
-      </p>
-      <p>
-        Feliz Día de la Mujer, mi amor. 🌸
-      </p>
-      <div class="signature">Con todo mi cariño, Douglas 💖</div>
-    </section>
-  </div>
+    <!-- Corazones creados con JavaScript -->
+    <div id="corazones"></div>
 
-  <script>
-    const heartsContainer = document.getElementById("hearts");
-    const flowersContainer = document.getElementById("flowers");
+    <main>
 
-    const heartSymbols = ["💗","💖","💕","💞"];
-    const flowerSymbols = ["🌸","🌷","✨","🤍"];
+        <!-- ========================================================
+             PORTADA
+        ========================================================= -->
 
-    function createFloatingElement(container, symbols, amount, minSize, maxSize, minDur, maxDur){
-      for(let i=0;i<amount;i++){
-        const el = document.createElement("div");
-        el.className = "floating";
-        el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-        el.style.left = Math.random() * 100 + "vw";
-        el.style.fontSize = (Math.random() * (maxSize - minSize) + minSize) + "px";
-        el.style.animationDuration = (Math.random() * (maxDur - minDur) + minDur) + "s";
-        el.style.animationDelay = (Math.random() * 8) + "s";
-        container.appendChild(el);
-      }
-    }
+        <section class="hero">
 
-    createFloatingElement(heartsContainer, heartSymbols, 18, 18, 30, 10, 18);
-    createFloatingElement(flowersContainer, flowerSymbols, 20, 16, 28, 11, 19);
-  </script>
+            <div class="hero-contenido reveal">
+
+                <div class="hero-mini">
+                    Para una persona muy especial
+                </div>
+
+                <h1>
+                    Felices 11 meses,
+                    <span>mi Ale</span>
+                </h1>
+
+                <p class="hero-texto">
+                    Once meses pueden parecer solamente una fecha,
+                    pero para mí representan recuerdos, risas,
+                    aprendizajes, abrazos, momentos hermosos y una historia
+                    que quiero seguir escribiendo contigo, mi amor.
+                </p>
+
+                <div class="hero-detalle">
+
+                    <div class="dato">
+                        <strong>11</strong>
+                        <small>Meses juntos</small>
+                    </div>
+
+                    <div class="dato">
+                        <strong>∞</strong>
+                        <small>Recuerdos</small>
+                    </div>
+
+                    <div class="dato">
+                        <strong>1</strong>
+                        <small>Mi persona especial</small>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- ====================================================
+                 AQUÍ COLOCA UNA FOTO PRINCIPAL DE USTEDES
+                 
+                 Guarda la foto en la misma carpeta del index.html
+                 con el nombre:
+                 
+                 foto-portada.jpg
+                 
+                 Puedes cambiar el nombre en src=""
+            ===================================================== -->
+
+            <div class="hero-foto-wrapper reveal">
+
+                <div class="foto-principal">
+
+                    <div class="foto-fallback">
+                        <span>♡</span>
+                        Nuestra foto favorita
+                        <small>foto-portada.jpg</small>
+                    </div>
+
+                    <img
+                        src="foto-portada.jpg"
+                        alt="Ale y yo"
+                        onerror="this.style.display='none';"
+                    >
+
+                </div>
+
+                <div class="mini-corazon">
+                    ❤️
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================================
+             MENSAJE DE AGRADECIMIENTO
+        ========================================================= -->
+
+        <section>
+
+            <div class="carta-contenedor reveal">
+
+                <span class="etiqueta">
+                    Una pequeña carta para ti
+                </span>
+
+                <h2 class="titulo-seccion">
+                    Gracias por estos 11 meses
+                </h2>
+
+                <p class="texto-seccion">
+                    Mi Ale, quiero agradecerte de corazón por todos los
+                    maravillosos momentos que hemos vivido y por todo el tiempo
+                    que hemos compartido juntos. Gracias por cada sonrisa, cada
+                    conversación, cada abrazo, cada locura y también por esos
+                    pequeños momentos que quizá parecen simples, pero que contigo
+                    se convierten en recuerdos que significan muchísimo para mí.
+                    <br><br>
+
+                    Gracias por permitirme compartir una parte de tu vida y por
+                    estar presente en la mía. Estos once meses me han dejado
+                    momentos que guardo con muchísimo cariño y que siempre tendrán
+                    un lugar especial dentro de mí.
+                    <br><br>
+
+                    Tal vez no siempre encuentre las palabras perfectas para
+                    demostrarte todo lo que significas para mí, pero quiero que
+                    nunca dudes de algo: <strong>te quiero muchísimo, mi amor.</strong>
+                </p>
+
+                <div class="firma">
+                    Para ti, Mi cielito ❤️
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================================
+             TRES PEQUEÑOS MENSAJES
+        ========================================================= -->
+
+        <section>
+
+            <div class="reveal">
+                <span class="etiqueta">
+                    Cositas que quiero que recuerdes
+                </span>
+
+                <h2 class="titulo-seccion">
+                    Hay tantas razones para quererte
+                </h2>
+
+                <div class="tarjetas">
+
+                    <article class="tarjeta">
+
+                        <div class="tarjeta-numero">
+                            01.
+                        </div>
+
+                        <h3>Mi Ale</h3>
+
+                        <p>
+                            Gracias por llegar a mi vida y convertir tantos
+                            momentos normales en recuerdos que ahora tienen un
+                            significado completamente diferente para mí.
+                        </p>
+
+                    </article>
+
+
+                    <article class="tarjeta">
+
+                        <div class="tarjeta-numero">
+                            02.
+                        </div>
+
+                        <h3>Mi amor</h3>
+
+                        <p>
+                            Me encanta poder compartir contigo mis días, mis
+                            pensamientos, mis alegrías y hasta aquellas cosas
+                            pequeñas que solamente contigo quiero contar.
+                        </p>
+
+                    </article>
+
+
+                    <article class="tarjeta">
+
+                        <div class="tarjeta-numero">
+                            03.
+                        </div>
+
+                        <h3>Mi cielito</h3>
+
+                        <p>
+                            Espero que cuando algún día vuelvas a esta página
+                            recuerdes que alguien decidió sentarse a construir
+                            todo esto simplemente porque eres muy especial para él.
+                        </p>
+
+                    </article>
+
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ========================================================
+             GALERÍA DE FOTOS
+             
+             COLOCA TUS FOTOS EN LA MISMA CARPETA:
+             
+             foto-1.jpg
+             foto-2.jpg
+             foto-3.jpg
+             
+             También puedes agregar más bloques si quieres.
+        ========================================================= -->
+
+        <section>
+
+            <div class="reveal">
+
+                <span class="etiqueta">
+                    Algunos pedacitos de nosotros
+                </span>
+
+                <h2 class="titulo-seccion">
+                    Recuerdos que valen muchísimo
+                </h2>
+
+                <div class="galeria">
+
+                    <div class="foto-galeria">
+
+                        <div class="fallback">
+                            ❤️<br>
+                            Aquí va uno de nuestros recuerdos
+                        </div>
+
+                        <img
+                            src="foto-1.jpg"
+                            alt="Nuestro recuerdo 1"
+                            onerror="this.style.display='none';"
+                        >
+
+                    </div>
+
+
+                    <div class="foto-galeria">
+
+                        <div class="fallback">
+                            ♡<br>
+                            Una foto bonita juntos
+                        </div>
+
+                        <img
+                            src="foto-2.jpg"
+                            alt="Nuestro recuerdo 2"
+                            onerror="this.style.display='none';"
+                        >
+
+                    </div>
+
+
+                    <div class="foto-galeria">
+
+                        <div class="fallback">
+                            ❤️<br>
+                            Otro momento que quiero guardar
+                        </div>
+
+                        <img
+                            src="foto-3.jpg"
+                            alt="Nuestro recuerdo 3"
+                            onerror="this.style.display='none';"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================================
+             PROMESA
+        ========================================================= -->
+
+        <section class="promesa reveal">
+
+            <div class="promesa-corazon">
+                ♡
+            </div>
+
+            <span class="etiqueta">
+                Quiero prometerte algo
+            </span>
+
+            <h2 class="titulo-seccion">
+                También quiero estar cuando no todo sea perfecto
+            </h2>
+
+            <p class="frase-grande">
+                Sé que no todos nuestros días serán fáciles y que hemos tenido
+                y tendremos momentos complicados. Pero incluso cuando existan
+                dificultades, diferencias o malos momentos, quiero que sepas
+                que mi deseo es <em>luchar por nosotros, aprender, mejorar y
+                seguir adelante siempre contigo.</em>
+            </p>
+
+            <p class="texto-seccion" style="margin-top:30px;">
+                Porque para mí amar no significa solamente compartir los días
+                bonitos. También significa elegirnos cuando las cosas cuestan,
+                escucharnos, comprendernos y recordar por qué decidimos estar
+                juntos.
+            </p>
+
+        </section>
+
+
+        <!-- ========================================================
+             ORGULLO
+        ========================================================= -->
+
+        <section>
+
+            <div class="orgullo reveal">
+
+                <div class="numero-11">
+                    11
+                </div>
+
+                <div>
+
+                    <span class="etiqueta">
+                        Una cosa más
+                    </span>
+
+                    <h2 class="titulo-seccion">
+                        Estoy inmensamente orgulloso de ti
+                    </h2>
+
+                    <p class="texto-seccion">
+                        Mi Ale, quiero que sepas lo inmensamente feliz que me
+                        hace ver a la mujer en la que te has convertido.
+                        Me encanta verte crecer, aprender, avanzar y luchar por
+                        aquello que quieres.
+                        <br><br>
+
+                        Espero que nunca pierdas esa esencia que te hace ser tú,
+                        que siempre continúes creciendo y que con el tiempo seas
+                        incluso una versión todavía más increíble de la mujer
+                        que eres hoy.
+                        <br><br>
+
+                        Deseo poder estar ahí para celebrar tus logros, apoyarte
+                        en tus días difíciles y recordarte todo lo que eres capaz
+                        de conseguir cuando tú misma llegues a olvidarlo.
+                        <br><br>
+
+                        <strong>
+                            Siempre quiero verte brillar, Mi cielito.
+                        </strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================================
+             FINAL INTERACTIVO
+        ========================================================= -->
+
+        <section class="final">
+
+            <div class="final-contenido reveal">
+
+                <span class="etiqueta">
+                    Y después de todo esto...
+                </span>
+
+                <h2>
+                    elegiría volver a encontrarte.
+                </h2>
+
+                <p>
+                    Gracias por estos primeros 11 meses de nuestra historia,
+                    mi amor. No sé exactamente todo lo que vendrá después,
+                    pero sí sé que quiero descubrirlo contigo.
+                </p>
+
+                <button class="btn-sorpresa" id="btnSorpresa">
+                    Una última cosita ❤️
+                </button>
+
+
+                <div class="mensaje-secreto" id="mensajeSecreto">
+
+                    <div class="secreto-caja">
+
+                        <strong>
+                            Felices 11 meses, mi Ale
+                        </strong>
+
+                        <p>
+                            Entre todos los lugares del mundo,
+                            todas las personas y todos los caminos posibles,
+                            me alegra muchísimo que nuestros caminos se hayan encontrado.
+                            <br><br>
+
+                            Esto es solamente una pequeña manera de decirte algo
+                            que siento muchísimo más grande:
+                            <br><br>
+
+                            <b>
+                                gracias por existir, gracias por nosotros
+                                y gracias por dejarme quererte. ❤️
+                            </b>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        HECHO CON ❤️ ESPECIALMENTE PARA MI ALE · 11 MESES
+    </footer>
+
+
+    <!-- ============================================================
+         MÚSICA OPCIONAL
+         
+         Si después quieres agregar una canción de ustedes,
+         puedes colocar un archivo llamado cancion.mp3 en la carpeta
+         y descomentar estas líneas:
+         
+         <audio id="musica" loop>
+             <source src="cancion.mp3" type="audio/mpeg">
+         </audio>
+         
+         Después también puedes agregar en abrirPagina:
+         
+         document.getElementById("musica").play();
+         
+         IMPORTANTE:
+         Es mejor que la música empiece después de pulsar
+         "Abrir mi regalo" porque los navegadores bloquean
+         el autoplay automático.
+    ============================================================= -->
+
+
+    <script>
+
+        /* ==========================================================
+           ABRIR LA PÁGINA
+        ========================================================== */
+
+        const intro = document.getElementById("intro");
+        const btnAbrir = document.getElementById("abrirPagina");
+
+        btnAbrir.addEventListener("click", () => {
+
+            intro.classList.add("oculta");
+
+            document.body.classList.remove("bloqueado");
+
+            // Si agregas música, puedes colocar aquí:
+            // document.getElementById("musica").play();
+
+        });
+
+
+        /* ==========================================================
+           ANIMACIONES AL HACER SCROLL
+        ========================================================== */
+
+        const elementosReveal = document.querySelectorAll(".reveal");
+
+        const observador = new IntersectionObserver(
+            (entradas) => {
+
+                entradas.forEach((entrada) => {
+
+                    if (entrada.isIntersecting) {
+                        entrada.target.classList.add("visible");
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+        elementosReveal.forEach((elemento) => {
+            observador.observe(elemento);
+        });
+
+
+        /* ==========================================================
+           CORAZONES FLOTANDO
+        ========================================================== */
+
+        const contenedorCorazones =
+            document.getElementById("corazones");
+
+        function crearCorazon() {
+
+            const corazon = document.createElement("div");
+
+            corazon.classList.add("corazon-flotante");
+
+            const corazones = [
+                "♡",
+                "♥",
+                "♡",
+                "❤"
+            ];
+
+            corazon.textContent =
+                corazones[Math.floor(Math.random() * corazones.length)];
+
+            corazon.style.left =
+                Math.random() * 100 + "vw";
+
+            corazon.style.fontSize =
+                (Math.random() * 16 + 10) + "px";
+
+            corazon.style.animationDuration =
+                (Math.random() * 7 + 8) + "s";
+
+            contenedorCorazones.appendChild(corazon);
+
+            setTimeout(() => {
+                corazon.remove();
+            }, 16000);
+
+        }
+
+        setInterval(crearCorazon, 900);
+
+
+        /* ==========================================================
+           MENSAJE FINAL
+        ========================================================== */
+
+        const btnSorpresa =
+            document.getElementById("btnSorpresa");
+
+        const mensajeSecreto =
+            document.getElementById("mensajeSecreto");
+
+        btnSorpresa.addEventListener("click", (evento) => {
+
+            mensajeSecreto.classList.toggle("mostrar");
+
+            btnSorpresa.textContent =
+                mensajeSecreto.classList.contains("mostrar")
+                    ? "Te quiero, mi Ale ❤️"
+                    : "Una última cosita ❤️";
+
+            crearExplosion(evento.clientX, evento.clientY);
+
+        });
+
+
+        /* ==========================================================
+           EXPLOSIÓN DE CORAZONES
+        ========================================================== */
+
+        function crearExplosion(x, y) {
+
+            for (let i = 0; i < 30; i++) {
+
+                const corazon =
+                    document.createElement("span");
+
+                corazon.classList.add("explosion");
+
+                corazon.textContent =
+                    Math.random() > 0.5 ? "❤️" : "♡";
+
+                corazon.style.left = x + "px";
+                corazon.style.top = y + "px";
+
+                const direccionX =
+                    (Math.random() - 0.5) * 500;
+
+                const direccionY =
+                    (Math.random() - 0.5) * 500;
+
+                corazon.style.setProperty(
+                    "--x",
+                    direccionX + "px"
+                );
+
+                corazon.style.setProperty(
+                    "--y",
+                    direccionY + "px"
+                );
+
+                corazon.style.fontSize =
+                    (Math.random() * 16 + 13) + "px";
+
+                document.body.appendChild(corazon);
+
+                setTimeout(() => {
+                    corazon.remove();
+                }, 1800);
+
+            }
+
+        }
+
+    </script>
+
 </body>
 </html>
