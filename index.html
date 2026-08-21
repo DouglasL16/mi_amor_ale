@@ -9,6 +9,7 @@
     <!-- Tipografías -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
@@ -271,8 +272,7 @@
             width: 100%;
             max-width: none;
 
-            padding:
-                60px 7%;
+            padding: 60px 7%;
 
             display: grid;
 
@@ -588,9 +588,6 @@
             transform: translateY(30px);
         }
 
-
-        /* TEXTO SOLO EN CASO DE ERROR */
-
         .foto-galeria .fallback {
             position: absolute;
             inset: 0;
@@ -613,9 +610,6 @@
                 );
         }
 
-
-        /* FOTO SIEMPRE POR ENCIMA DEL FALLBACK */
-
         .foto-galeria img {
             position: relative;
             z-index: 2;
@@ -627,8 +621,7 @@
 
             object-fit: cover;
 
-            transition:
-                transform .8s ease;
+            transition: transform .8s ease;
         }
 
         .foto-galeria:hover img {
@@ -654,8 +647,7 @@
             display: grid;
             place-items: center;
 
-            margin:
-                0 auto 30px;
+            margin: 0 auto 30px;
 
             background: #fbe2e8;
 
@@ -728,8 +720,7 @@
 
             min-height: 90vh;
 
-            padding:
-                100px 7%;
+            padding: 100px 7%;
 
             display: flex;
 
@@ -772,8 +763,7 @@
         }
 
         .final p {
-            margin:
-                25px auto 0;
+            margin: 25px auto 0;
 
             max-width: 620px;
 
@@ -791,8 +781,7 @@
 
             border-radius: 50px;
 
-            padding:
-                17px 34px;
+            padding: 17px 34px;
 
             font-family: "Poppins", sans-serif;
 
@@ -848,8 +837,7 @@
         footer {
             text-align: center;
 
-            padding:
-                35px 20px;
+            padding: 35px 20px;
 
             background: #f8d8e1;
 
@@ -904,16 +892,14 @@
 
 
         /* ==========================================================
-           CELULAR
+           RESPONSIVE - CELULAR
         ========================================================== */
 
         @media (max-width: 850px) {
 
             .hero {
                 grid-template-columns: 1fr;
-
                 padding-top: 100px;
-
                 text-align: center;
             }
 
@@ -927,11 +913,7 @@
             }
 
             .hero-foto-wrapper {
-                width:
-                    min(
-                        88%,
-                        420px
-                    );
+                width: min(88%, 420px);
             }
 
             .tarjetas {
@@ -964,8 +946,7 @@
         @media (max-width: 520px) {
 
             section {
-                padding:
-                    70px 0;
+                padding: 70px 0;
             }
 
             .hero {
@@ -978,8 +959,7 @@
             }
 
             .intro-contenido {
-                padding:
-                    30px 20px;
+                padding: 30px 20px;
             }
 
             .carta-contenedor {
@@ -1002,7 +982,7 @@
 
 
     <!-- ==========================================================
-         INICIO
+         PANTALLA INICIAL
     ========================================================== -->
 
     <div class="intro" id="intro">
@@ -1034,6 +1014,8 @@
 
     </div>
 
+
+    <!-- Corazones de fondo -->
 
     <div id="corazones"></div>
 
@@ -1077,6 +1059,7 @@
 
                 <div class="hero-detalle">
 
+
                     <div class="dato">
 
                         <strong>
@@ -1115,17 +1098,22 @@
 
                     </div>
 
+
                 </div>
 
             </div>
 
 
 
-            <!-- FOTO PRINCIPAL -->
+            <!-- ==================================================
+                 FOTO PRINCIPAL
+                 Archivo: foto-portada.jpg
+            ================================================== -->
 
             <div class="hero-foto-wrapper reveal">
 
                 <div class="foto-principal">
+
 
                     <div class="foto-fallback">
 
@@ -1162,7 +1150,9 @@
                     ❤️
                 </div>
 
+
             </div>
+
 
         </section>
 
@@ -1173,6 +1163,7 @@
         ====================================================== -->
 
         <section>
+
 
             <div class="carta-contenedor reveal">
 
@@ -1225,7 +1216,7 @@
                     de algo:
 
                     <strong>
-                        te quiero muchísimo, mi amor.
+                        te amo muchísimo, mi amor. ❤️
                     </strong>
 
                 </p>
@@ -1235,7 +1226,9 @@
                     Para ti, Mi cielito ❤️
                 </div>
 
+
             </div>
+
 
         </section>
 
@@ -1257,7 +1250,7 @@
 
 
                 <h2 class="titulo-seccion">
-                    Hay tantas razones para quererte
+                    Hay tantas razones para amarte
                 </h2>
 
 
@@ -1339,7 +1332,9 @@
 
                 </div>
 
+
             </div>
+
 
         </section>
 
@@ -1347,6 +1342,12 @@
 
         <!-- ======================================================
              GALERÍA
+             
+             Tus archivos:
+             
+             foto1.jpeg
+             foto2.jpeg
+             foto3.jpeg
         ====================================================== -->
 
         <section>
@@ -1397,6 +1398,7 @@
                             "
                         >
 
+
                     </div>
 
 
@@ -1428,6 +1430,7 @@
                                 this.style.display='none';
                             "
                         >
+
 
                     </div>
 
@@ -1461,12 +1464,15 @@
                             "
                         >
 
+
                     </div>
 
 
                 </div>
 
+
             </div>
+
 
         </section>
 
@@ -1530,6 +1536,7 @@
                 estar juntos.
 
             </p>
+
 
         </section>
 
@@ -1597,14 +1604,17 @@
 
                         <strong>
                             Siempre quiero verte brillar,
-                            Mi cielito.
+                            Mi cielito. ❤️
                         </strong>
 
                     </p>
 
+
                 </div>
 
+
             </div>
+
 
         </section>
 
@@ -1691,17 +1701,21 @@
 
                                 gracias por existir,
                                 gracias por nosotros
-                                y gracias por dejarme quererte. ❤️
+                                y gracias por dejarme amarte. ❤️
 
                             </b>
 
                         </p>
 
+
                     </div>
+
 
                 </div>
 
+
             </div>
+
 
         </section>
 
@@ -1943,7 +1957,7 @@
                 ) {
 
                     btnSorpresa.textContent =
-                        "Te quiero, mi Ale ❤️";
+                        "Te amo, mi Ale ❤️";
 
                 }
 
@@ -2074,6 +2088,7 @@
             }
 
         }
+
 
     </script>
 
